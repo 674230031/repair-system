@@ -1,59 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ระบบแจ้งซ่อม (Repair Request System)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ระบบแจ้งซ่อมเป็นเว็บแอปพลิเคชันสำหรับจัดการรายการแจ้งซ่อม
+ช่วยให้ผู้ใช้งานสามารถแจ้งปัญหา และให้ช่างสามารถตรวจสอบ
+รับงาน และอัปเดตสถานะการซ่อมได้
 
-## About Laravel
+## เทคโนโลยีที่ใช้
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel
+- PHP
+- MySQL
+- Bootstrap 5
+- HTML
+- CSS
+- JavaScript
+- Git และ GitHub
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ฟังก์ชันของระบบ
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### สำหรับผู้แจ้งซ่อม
 
-## Learning Laravel
+- แจ้งรายการซ่อม
+- ระบุชื่อผู้แจ้ง
+- ระบุหัวข้อปัญหา
+- เลือกประเภทปัญหา
+- ระบุสถานที่
+- ระบุรายละเอียดปัญหา
+- แนบรูปภาพปัญหา
+- ดูรายการแจ้งซ่อม
+- ดูรายละเอียดการแจ้งซ่อม
+- แก้ไขข้อมูลการแจ้งซ่อม
+- ลบรายการแจ้งซ่อม
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### สำหรับช่างซ่อม
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- ดู Dashboard งานซ่อม
+- ดูงานที่รอดำเนินการ
+- รับงานซ่อม
+- ดูงานที่กำลังดำเนินการ
+- อัปเดตสถานะงาน
+- ดูงานที่ดำเนินการเสร็จแล้ว
+- บันทึกผลการซ่อม
 
-## Laravel Sponsors
+## สถานะการซ่อม
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+ระบบแบ่งสถานะการซ่อมออกเป็น 4 สถานะ
 
-### Premium Partners
+- 🟡 Pending — รอดำเนินการ
+- 🔵 Processing — กำลังดำเนินการ
+- 🟢 Completed — ดำเนินการเสร็จแล้ว
+- 🔴 Cancelled — ยกเลิก
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## โครงสร้างการทำงาน
 
-## Contributing
+1. ผู้ใช้เข้าสู่ระบบแจ้งซ่อม
+2. ผู้ใช้กรอกข้อมูลปัญหา
+3. ระบบบันทึกข้อมูลลงฐานข้อมูล
+4. รายการแจ้งซ่อมจะแสดงใน Dashboard ของช่าง
+5. ช่างตรวจสอบรายละเอียดงาน
+6. ช่างกดรับงาน
+7. สถานะเปลี่ยนเป็น "กำลังดำเนินการ"
+8. ช่างดำเนินการซ่อม
+9. ช่างอัปเดตผลการซ่อม
+10. สถานะเปลี่ยนเป็น "ดำเนินการเสร็จแล้ว"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## การติดตั้งและใช้งาน
 
-## Code of Conduct
+### 1. Clone โปรเจกต์
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/674230031/repair-system.git
